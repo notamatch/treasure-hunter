@@ -1,0 +1,12 @@
+{
+  "name": "treasure-hunter-api",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js"
+  }
+}
