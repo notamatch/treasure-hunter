@@ -1,4 +1,4 @@
-const { validatePosition } = require('./utils');
+const { setProximity } = require('./proximity');
 const {
   BOARD_SIZE,
   TREASURE_QUANTITY,
@@ -34,43 +34,6 @@ const getPositions = (treasures) => {
 
 const setTreasure = (board, treasure) => {
   board[treasure.row][treasure.column] = 'x';
-};
-
-const setProximity3 = (board, treasure) => {
-  const { row, column } = treasure;
-  if (validatePosition(board, row - 1, column)) {
-    board[row - 1][column] = 3;
-  }
-  if (validatePosition(board, row + 1, column)) {
-    board[row + 1][column] = 3;
-  }
-  if (validatePosition(board, row, column - 1)) {
-    board[row][column - 1] = 3;
-  }
-  if (validatePosition(board, row, column + 1)) {
-    board[row][column + 1] = 3;
-  }
-};
-
-const setProximity2 = (board, treasure) => {
-  const { row, column } = treasure;
-  if (validatePosition(board, row - 1, column - 1)) {
-    board[row - 1][column - 1] = 2;
-  }
-  if (validatePosition(board, row - 1, column + 1)) {
-    board[row - 1][column + 1] = 2;
-  }
-  if (validatePosition(board, row + 1, column + 1)) {
-    board[row + 1][column + 1] = 2;
-  }
-  if (validatePosition(board, row + 1, column - 1)) {
-    board[row + 1][column - 1] = 2;
-  }
-};
-
-const setProximity = (board, treasure) => {
-  setProximity3(board, treasure);
-  setProximity2(board, treasure);
 };
 
 const fillBoard = (board, treasures) => {
