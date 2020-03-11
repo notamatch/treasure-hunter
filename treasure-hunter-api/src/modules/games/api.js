@@ -1,9 +1,11 @@
 const { Router } = require('express');
+const service = require('./service');
 
 const routes = Router();
 
-routes.get('/', (_, res) => {
-  res.json({ foo: 'hola' });
+routes.post('/', (_, res) => {
+  const board = service.getBoard();
+  res.json({ board });
 });
 
 module.exports = {
