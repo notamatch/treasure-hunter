@@ -9,6 +9,11 @@ routes.post('/', (req, res) => {
   res.json(response);
 });
 
+routes.get('/', (_, res) => {
+  const response = game.getCurrentGame();
+  res.json(response);
+});
+
 module.exports = {
   routes
 };

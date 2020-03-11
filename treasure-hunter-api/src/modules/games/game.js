@@ -11,6 +11,13 @@ const startGame = (data) => {
   return { player };
 };
 
+const getCurrentGame = () => {
+  return {
+    player: currentPlayer
+  };
+}
+
 module.exports = {
-  startGame
+  startGame,
+  getCurrentGame
 };
