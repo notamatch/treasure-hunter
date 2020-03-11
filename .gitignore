@@ -1,0 +1,5 @@
+# vscode config folder
+.vscode/
+
+# dependencies
+node_modules/
