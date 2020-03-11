@@ -4,11 +4,11 @@ let currentPlayer = '';
 let currentBoard = null;
 
 const startGame = (data) => {
-  const { name } = data;
+  const { player } = data;
   const board = createBoard();
-  currentPlayer = name;
+  currentPlayer = player;
   currentBoard = board;
-  return { name };
+  return { player };
 };
 
 module.exports = {
