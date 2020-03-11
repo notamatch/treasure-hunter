@@ -1,5 +1,4 @@
 import React from 'react';
+import { GameContainer } from '../Game';
 
-export const App = () => (
-  <div>Hello World</div>
-);
+export const App = () => <GameContainer />;
