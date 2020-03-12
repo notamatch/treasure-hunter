@@ -21,9 +21,12 @@ export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
 });
 
-export const updateAction = (data) => ({
-  type: GAME_ACTIONS.UPDATE,
-  paylaod: data
+export const revealPositionsAction = (positions, values) => ({
+  type: GAME_ACTIONS.REVEAL,
+  payload: {
+    positions,
+    values
+  }
 });
 
 export const startGameAction = (player) => async (dispatch) => {

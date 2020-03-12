@@ -11,9 +11,6 @@ export const game = (state = initialState, action) => {
     case GAME_ACTIONS.LOAD: {
       return { ...action.payload };
     }
-    case GAME_ACTIONS.UPDATE: {
-      return { ...state, ...action.payload };
-    }
     case GAME_ACTIONS.MARK: {
       const { row, column } = action.payload;
       const board = state.board.map((current) => [...current]);
@@ -24,6 +21,15 @@ export const game = (state = initialState, action) => {
       const { row, column } = action.payload;
       const board = state.board.map((current) => [...current]);
       board[row][column] = null;
+      return { ...state, board };
+    }
+    case GAME_ACTIONS.REVEAL: {
+      const { positions, values } = action.payload;
+      const board = state.board.map((current) => [...current]);
+      positions.forEach(({ row, column }, index) => {
+        board[row][column] = values[index];
+      });
+      console.info(board);
       return { ...state, board };
     }
     case GAME_ACTIONS.CLEAN: {

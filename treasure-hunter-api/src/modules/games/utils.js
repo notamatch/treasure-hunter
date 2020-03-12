@@ -20,9 +20,12 @@ const validateValue = (board, position, values = []) => {
   return !values.some((value) => board[position.row][position.column] === value);
 };
 
+const makeCopy = (board) => board.map((current) => [...current]);
+
 module.exports = {
   validatePosition,
   isGreaterProximity,
   visualizeBoard,
-  validateValue
+  validateValue,
+  makeCopy
 };

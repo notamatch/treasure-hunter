@@ -1,4 +1,5 @@
 const { createStaticBoard, getGameBoard } = require('./board');
+const { makeCopy } = require('./utils');
 
 let currentPlayer = '';
 let staticBoard = [];
@@ -11,21 +12,29 @@ const startGame = (data) => {
   currentPlayer = player;
   return {
     player,
-    board: gameBoard
+    board: makeCopy(gameBoard)
   };
 };
 
 const getCurrentGame = () => {
   return {
     player: currentPlayer,
-    board: gameBoard
+    board: makeCopy(gameBoard)
   };
 };
 
+const revealPositions = (positions) => {
+  return positions.map((position) => {
+    const { row, column } = position;
+    const value = staticBoard[row][column];
+    gameBoard[row][column] = value;
+    return value;
+  });
+};
+
 const playTurn = (data) => {
-  return {
-    board: gameBoard
-  };
+  const { positions } = data;
+  return revealPositions(positions);
 };
 
 module.exports = {
