@@ -14,3 +14,9 @@ The goal of the game is to find 3 treasures in minimum number of turns (number o
 
 - NodeJS (v10.16.0)
 
+## Roadmap
+
+- Add more unit tests to API
+- Refactor functions, components and so on (API, Web App)
+- Add unit tests to Web App
+- Improve styling
