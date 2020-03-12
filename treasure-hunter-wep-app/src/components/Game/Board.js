@@ -33,10 +33,10 @@ const getOnAdd = (dispatch, turn) => (row, column) => {
 };
 
 export const Board = ({ board }) => {
-  console.info(board);
   const dispatch = useDispatch();
   const turn = useSelector(selector, shallowEqual);
   const onAdd = getOnAdd(dispatch, turn);
+  const handlePlayTurn = () => dispatch(turnActions.playTurnAction(turn));
   return (
     <>
       {board.map((data, index) => (
@@ -47,6 +47,13 @@ export const Board = ({ board }) => {
             onAdd={onAdd} />
         </FlexboxGrid>
       ))}
+      {(turn.length === 3) && (
+        <Button
+          appearance='primary'
+          onClick={handlePlayTurn}>
+          Play Turn
+        </Button>
+      )}
     </>
   )
 };

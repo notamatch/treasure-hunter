@@ -11,3 +11,7 @@ export const createGame = async (player) => {
 export const getCurrentGame = async () => {
   return await api.get('/');
 };
+
+export const playTurn = async (positions) => {
+  return await api.put('/', { positions });
+};

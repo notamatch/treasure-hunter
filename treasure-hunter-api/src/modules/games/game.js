@@ -20,9 +20,16 @@ const getCurrentGame = () => {
     player: currentPlayer,
     board: gameBoard
   };
-}
+};
+
+const playTurn = (data) => {
+  return {
+    board: gameBoard
+  };
+};
 
 module.exports = {
   startGame,
-  getCurrentGame
+  getCurrentGame,
+  playTurn
 };
