@@ -36,6 +36,9 @@ const validateTreasure = (value) => {
   if (value === VALUES.TREASURE) {
     ++foundTreasures;
   }
+};
+
+const validateGame = () => {
   if (foundTreasures === TREASURE_QUANTITY) {
     topList.push({
       player: currentPlayer,
@@ -60,6 +63,7 @@ const playTurn = (data) => {
   const { positions } = data;
   ++numberOfTurns;
   const values = revealPositions(positions);
+  validateGame();
   return {
     values,
     win: foundTreasures === TREASURE_QUANTITY
