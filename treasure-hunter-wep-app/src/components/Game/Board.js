@@ -10,6 +10,10 @@ const Row = ({ data, row, onAdd }) => (
     const config = getConfig(value);
     return (
       <Button
+        style={{
+          height: '36px',
+          width: '36px'
+        }}
         key={column}
         onClick={() => onAdd(row, column)}
         {...config}>

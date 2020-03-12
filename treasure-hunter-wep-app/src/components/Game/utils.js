@@ -1,7 +1,10 @@
 import { VALUES } from './constants';
 
-const getValue = () => {
-  return VALUES.COVERED;
+const getValue = (value) => {
+  if (!value || value === VALUES.COVERED || value === VALUES.TO_PLAY) {
+    return VALUES.COVERED;
+  }
+  return value;
 };
 
 const isDisabled = (value) => {
@@ -11,6 +14,8 @@ const isDisabled = (value) => {
 const getAppearance = (value) => {
   if (value === VALUES.TO_PLAY) {
     return 'ghost';
+  } else if (value) {
+    return 'primary'
   }
   return 'default';
 };
