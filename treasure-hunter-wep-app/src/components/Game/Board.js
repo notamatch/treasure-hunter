@@ -2,15 +2,21 @@ import React from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { FlexboxGrid, Button } from 'rsuite';
 import { turnActions } from '../../reducers/turn';
+import { gameActions } from '../../reducers/game';
+import { getConfig } from './utils';
 
 const Row = ({ data, row, onAdd }) => (
-  data.map((_, column) => (
-    <Button
-      key={column}
-      onClick={() => onAdd(row, column)}>
-      ?
-    </Button>
-  ))
+  data.map((value, column) => {
+    const config = getConfig(value);
+    return (
+      <Button
+        key={column}
+        onClick={() => onAdd(row, column)}
+        {...config}>
+        {config.value}
+      </Button>
+    );
+  })
 );
 
 const selector = (state) => (state.turn);
@@ -18,6 +24,7 @@ const selector = (state) => (state.turn);
 const getOnAdd = (dispatch, turn) => (row, column) => {
   if (turn.length < 3) {
     dispatch(turnActions.addAction(row, column))
+    dispatch(gameActions.markAction(row, column))
   }
 };
 

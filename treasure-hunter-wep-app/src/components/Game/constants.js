@@ -1,3 +1,4 @@
 export const VALUES = {
-  TO_PLAY: 't'
+  TO_PLAY: 't',
+  COVERED: '?'
 };
