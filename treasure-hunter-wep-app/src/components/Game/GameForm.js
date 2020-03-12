@@ -7,7 +7,8 @@ import {
   FormControl,
   ButtonToolbar,
   Button,
-  Schema
+  Schema,
+  FlexboxGrid
 } from 'rsuite';
 import { gameActions } from '../../reducers/game';
 
@@ -32,23 +33,26 @@ export const GameForm = () => {
   return (
     <Form
       ref={(ref) => form = ref}
+      fluid
       model={model}
       formValue={{ player }}>
       <FormGroup>
-        <ControlLabel>Player</ControlLabel>
         <FormControl
           name='player'
           size='sm'
+          placeholder='Player'
           onChange={onPlayerChange} />
       </FormGroup>
       <FormGroup>
-        <ButtonToolbar>
-          <Button
-            appearance='primary'
-            onClick={() => handleSubmit(form, player)}>
-            Start Game
+        <FlexboxGrid justify='center'>
+          <ButtonToolbar>
+            <Button
+              appearance='primary'
+              onClick={() => handleSubmit(form, player)}>
+              Start Game
           </Button>
-        </ButtonToolbar>
+          </ButtonToolbar>
+        </FlexboxGrid>
       </FormGroup>
     </Form>
   );
