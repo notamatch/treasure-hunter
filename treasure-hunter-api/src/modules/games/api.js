@@ -14,6 +14,12 @@ routes.get('/', (_, res) => {
   res.json(response);
 });
 
+routes.put('/', (req, res) => {
+  const data = req.body;
+  const response = game.playTurn(data);
+  res.json(response);
+});
+
 module.exports = {
   routes
 };

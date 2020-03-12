@@ -7,8 +7,15 @@ const MAX_NUMBER = (BOARD_SIZE.COLUMNS * BOARD_SIZE.ROWS) - 1;
 
 const TREASURE_QUANTITY = 3;
 
+const VALUES = {
+  TREASURE: 'x',
+  PROXIMITY3: 3,
+  PROXIMITY2: 2,
+};
+
 module.exports = {
   BOARD_SIZE,
   TREASURE_QUANTITY,
-  MAX_NUMBER
+  MAX_NUMBER,
+  VALUES
 };

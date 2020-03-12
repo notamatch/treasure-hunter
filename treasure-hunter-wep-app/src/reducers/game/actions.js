@@ -7,8 +7,30 @@ export const loadAction = (data) => ({
   payload: data
 });
 
+export const markAction = (row, column) => ({
+  type: GAME_ACTIONS.MARK,
+  payload: { row, column }
+});
+
+export const blankAction = (row, column) => ({
+  type: GAME_ACTIONS.BLANK,
+  payload: { row, column }
+});
+
 export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
+});
+
+export const winAction = () => ({
+  type: GAME_ACTIONS.WIN
+});
+
+export const revealPositionsAction = (positions, values) => ({
+  type: GAME_ACTIONS.REVEAL,
+  payload: {
+    positions,
+    values
+  }
 });
 
 export const startGameAction = (player) => async (dispatch) => {
