@@ -22,13 +22,18 @@ const Row = ({ data, row, onAdd }) => (
 const selector = (state) => (state.turn);
 
 const getOnAdd = (dispatch, turn) => (row, column) => {
-  if (turn.length < 3) {
+  const isMarked = turn.some((position) => position.row === row && position.column === column);
+  if (isMarked) {
+    dispatch(turnActions.removeAction(row, column));
+    dispatch(gameActions.blankAction(row, column));
+  } else if (!isMarked && turn.length < 3) {
     dispatch(turnActions.addAction(row, column))
     dispatch(gameActions.markAction(row, column))
   }
 };
 
 export const Board = ({ board }) => {
+  console.info(board);
   const dispatch = useDispatch();
   const turn = useSelector(selector, shallowEqual);
   const onAdd = getOnAdd(dispatch, turn);
