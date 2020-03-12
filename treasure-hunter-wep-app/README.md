@@ -5,6 +5,8 @@ This is the web app for the game treasuse game.
 ## Requirements
 
 - Intall dependencies, run `yarn`
+- Create a `.env` file from `.env.template` file
+- Replace environment variables in `.env` file
 
 ## Commands
 
