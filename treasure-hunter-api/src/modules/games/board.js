@@ -31,8 +31,13 @@ const getRandomNumber = (max) => {
 
 const getTreasures = () => {
   const treasures = [];
-  for (let quantity = 0; quantity < TREASURE_QUANTITY; quantity++) {
-    treasures.push(getRandomNumber(MAX_NUMBER));
+  let quantity = 0;
+  while (quantity < TREASURE_QUANTITY) {
+    const value = getRandomNumber(MAX_NUMBER);
+    if (!treasures.includes(value)) {
+      treasures.push(value);
+      quantity++;
+    }
   }
   return treasures;
 };

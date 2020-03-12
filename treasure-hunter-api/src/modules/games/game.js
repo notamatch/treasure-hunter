@@ -1,5 +1,5 @@
 const { createStaticBoard, getGameBoard } = require('./board');
-const { makeCopy, visualizeBoard } = require('./utils');
+const { makeCopy } = require('./utils');
 const { VALUES, TREASURE_QUANTITY } = require('./constants');
 
 let currentPlayer = '';
@@ -16,7 +16,6 @@ const startGame = (data) => {
   currentPlayer = player;
   foundTreasures = 0;
   numberOfTurns = 0;
-  visualizeBoard(staticBoard);
   return {
     player,
     board: makeCopy(gameBoard)
