@@ -19,9 +19,13 @@ export const cleanAction = () => ({
 
 export const playTurnAction = (positions) => async (dispatch) => {
   try {
-    const response = await playTurn(positions);
-    dispatch(gameActions.revealPositionsAction(positions, response.data));
+    const { data } = await playTurn(positions);
+    dispatch(gameActions.revealPositionsAction(positions, data.values));
     dispatch(cleanAction());
+    if (data.win) {
+      Alert.success('You win', 5000);
+      return;
+    }
   } catch (error) {
     Alert.error('Turn could not be played', 3000);
   }

@@ -29,7 +29,6 @@ export const game = (state = initialState, action) => {
       positions.forEach(({ row, column }, index) => {
         board[row][column] = values[index];
       });
-      console.info(board);
       return { ...state, board };
     }
     case GAME_ACTIONS.CLEAN: {
