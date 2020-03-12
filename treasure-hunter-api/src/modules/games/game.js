@@ -1,5 +1,5 @@
 const { createStaticBoard, getGameBoard } = require('./board');
-const { makeCopy } = require('./utils');
+const { makeCopy, sortPlayers } = require('./utils');
 const { VALUES, TREASURE_QUANTITY } = require('./constants');
 
 let currentPlayer = '';
@@ -41,8 +41,8 @@ const validateTreasure = (value) => {
       player: currentPlayer,
       score: numberOfTurns
     });
-    topList = topList.sort((element1, element2) => element1.score > element2.score);
-    topList = topList.slice(0, 9);
+    topList = topList.sort(sortPlayers);
+    topList = topList.slice(0, 10);
   }
 };
 

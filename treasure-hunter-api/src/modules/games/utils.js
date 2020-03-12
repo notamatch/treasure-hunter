@@ -22,10 +22,21 @@ const validateValue = (board, position, values = []) => {
 
 const makeCopy = (board) => board.map((current) => [...current]);
 
+const sortPlayers = (player1, player2) => {
+  if (player1.score > player2.score) {
+    return 1;
+  }
+  if (player1.score < player2.score) {
+    return -1;
+  }
+  return 0;
+};
+
 module.exports = {
   validatePosition,
   isGreaterProximity,
   visualizeBoard,
   validateValue,
-  makeCopy
+  makeCopy,
+  sortPlayers
 };

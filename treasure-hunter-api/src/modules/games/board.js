@@ -2,7 +2,8 @@ const { setProximity } = require('./proximity');
 const {
   BOARD_SIZE,
   TREASURE_QUANTITY,
-  MAX_NUMBER
+  MAX_NUMBER,
+  VALUES
 } = require('./constants');
 
 const generateBoard = (value) => {
@@ -53,7 +54,7 @@ const getPositions = (treasures) => {
 };
 
 const setTreasure = (board, treasure) => {
-  board[treasure.row][treasure.column] = 'x';
+  board[treasure.row][treasure.column] = VALUES.TREASURE;
 };
 
 const fillBoard = (board, treasures) => {
