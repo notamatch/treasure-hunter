@@ -6,7 +6,7 @@ export const loadAction = (data) => ({
   payload: data
 });
 
-export const startGameAction = (dispatch) => async (player) => {
+export const startGameAction = (player) => async (dispatch) => {
   try {
     const response = await createGame(player);
     dispatch(loadAction(response.data));
