@@ -73,6 +73,9 @@ const createStaticBoard = () => {
 };
 
 module.exports = {
+  getPosition,
+  getTreasures,
+  getEmptyBoard,
   createStaticBoard,
   getGameBoard
 };
