@@ -4,6 +4,7 @@ import { VALUES } from '../../components/Game/constants';
 const initialState = {
   player: '',
   board: [],
+  topList: [],
   win: false
 };
 

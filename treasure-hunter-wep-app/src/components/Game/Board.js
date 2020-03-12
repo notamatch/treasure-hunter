@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { FlexboxGrid, Button } from 'rsuite';
+import { FlexboxGrid, Button, Divider } from 'rsuite';
 import { turnActions } from '../../reducers/turn';
 import { gameActions } from '../../reducers/game';
 import { getConfig } from './utils';
@@ -52,12 +52,16 @@ export const Board = ({ board, win }) => {
             win={win} />
         </FlexboxGrid>
       ))}
-      {(turn.length === 3) && (
-        <Button
-          appearance='primary'
-          onClick={handlePlayTurn}>
-          Play Turn
-        </Button>
+      {board.length > 0 && (
+        <>
+          <Button
+            appearance='primary'
+            disabled={turn.length !== 3}
+            onClick={handlePlayTurn}>
+            Play Turn
+          </Button>
+          <Divider />
+        </>
       )}
     </>
   )

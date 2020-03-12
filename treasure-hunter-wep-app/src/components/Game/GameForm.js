@@ -7,7 +7,8 @@ import {
   FormControl,
   ButtonToolbar,
   Button,
-  Schema
+  Schema,
+  FlexboxGrid
 } from 'rsuite';
 import { gameActions } from '../../reducers/game';
 
@@ -16,9 +17,10 @@ const model = Model({
   player: StringType().isRequired('This field is required')
 });
 
-const getHandleSubmit = (dispatch) => (form, player) => {
+const getHandleSubmit = (dispatch, setPlayer) => (form, player) => {
   if (form.check()) {
     dispatch(gameActions.startGameAction(player));
+    setPlayer('');
   }
 };
 
@@ -27,27 +29,30 @@ export const GameForm = () => {
   const dispatch = useDispatch();
   const [player, setPlayer] = useState('');
   const onPlayerChange = (value) => setPlayer(value);
-  const handleSubmit = getHandleSubmit(dispatch);
+  const handleSubmit = getHandleSubmit(dispatch, setPlayer);
   return (
     <Form
       ref={(ref) => form = ref}
+      fluid
       model={model}
       formValue={{ player }}>
       <FormGroup>
-        <ControlLabel>Player</ControlLabel>
         <FormControl
           name='player'
           size='sm'
+          placeholder='Player'
           onChange={onPlayerChange} />
       </FormGroup>
       <FormGroup>
-        <ButtonToolbar>
-          <Button
-            appearance='primary'
-            onClick={() => handleSubmit(form, player)}>
-            Start Game
+        <FlexboxGrid justify='center'>
+          <ButtonToolbar>
+            <Button
+              appearance='primary'
+              onClick={() => handleSubmit(form, player)}>
+              Start Game
           </Button>
-        </ButtonToolbar>
+          </ButtonToolbar>
+        </FlexboxGrid>
       </FormGroup>
     </Form>
   );

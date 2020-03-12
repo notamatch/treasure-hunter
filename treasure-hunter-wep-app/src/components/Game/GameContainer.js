@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Alert } from 'rsuite';
+import { Alert, FlexboxGrid, Divider } from 'rsuite';
 import { Game } from './Game';
 import { getCurrentGame } from '../../services';
 import { gameActions } from '../../reducers/game';
@@ -19,5 +19,13 @@ export const GameContainer = () => {
   useEffect(() => {
     getGame(dispatch);
   });
-  return <Game />;
+  return (
+    <FlexboxGrid justify='center'>
+      <FlexboxGrid.Item colspan={12}>
+        <h3>Treasure Hunter</h3>
+        <Divider />
+        <Game />
+      </FlexboxGrid.Item>
+    </FlexboxGrid>
+  );
 };

@@ -1,5 +1,6 @@
 import { Alert } from 'rsuite';
 import { createGame } from '../../services/games';
+import { turnActions } from '../turn';
 import { GAME_ACTIONS } from './constants';
 
 export const loadAction = (data) => ({
@@ -37,6 +38,7 @@ export const startGameAction = (player) => async (dispatch) => {
   try {
     const response = await createGame(player);
     dispatch(loadAction(response.data));
+    dispatch(turnActions.cleanAction());
   } catch (error) {
     Alert.error('Game could not start', 3000);
     dispatch(cleanAction());
