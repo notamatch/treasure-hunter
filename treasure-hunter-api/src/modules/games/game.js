@@ -7,7 +7,7 @@ let staticBoard = [];
 let gameBoard = [];
 let foundTreasures = 0;
 let numberOfTurns = 0;
-let top10List = [];
+let topList = [];
 
 const startGame = (data) => {
   const { player } = data;
@@ -18,7 +18,8 @@ const startGame = (data) => {
   numberOfTurns = 0;
   return {
     player,
-    board: makeCopy(gameBoard)
+    board: makeCopy(gameBoard),
+    topList
   };
 };
 
@@ -27,7 +28,7 @@ const getCurrentGame = () => {
     player: currentPlayer,
     board: makeCopy(gameBoard),
     win: foundTreasures === TREASURE_QUANTITY,
-    top10List
+    topList
   };
 };
 
@@ -36,12 +37,12 @@ const validateTreasure = (value) => {
     ++foundTreasures;
   }
   if (foundTreasures === TREASURE_QUANTITY) {
-    top10List.push({
+    topList.push({
       player: currentPlayer,
       score: numberOfTurns
     });
-    top10List = top10List.sort((element1, element2) => element1.score > element2.score);
-    top10List = top10List.slice(0, 9);
+    topList = topList.sort((element1, element2) => element1.score > element2.score);
+    topList = topList.slice(0, 9);
   }
 };
 

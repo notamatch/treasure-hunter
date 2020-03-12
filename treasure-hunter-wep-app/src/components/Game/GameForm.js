@@ -16,9 +16,10 @@ const model = Model({
   player: StringType().isRequired('This field is required')
 });
 
-const getHandleSubmit = (dispatch) => (form, player) => {
+const getHandleSubmit = (dispatch, setPlayer) => (form, player) => {
   if (form.check()) {
     dispatch(gameActions.startGameAction(player));
+    setPlayer('');
   }
 };
 
@@ -27,7 +28,7 @@ export const GameForm = () => {
   const dispatch = useDispatch();
   const [player, setPlayer] = useState('');
   const onPlayerChange = (value) => setPlayer(value);
-  const handleSubmit = getHandleSubmit(dispatch);
+  const handleSubmit = getHandleSubmit(dispatch, setPlayer);
   return (
     <Form
       ref={(ref) => form = ref}
