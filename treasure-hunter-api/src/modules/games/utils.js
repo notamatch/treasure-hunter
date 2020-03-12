@@ -1,5 +1,5 @@
 const validatePosition = (board, position) => {
-  return board[position.row] && board[position.row][position.column];
+  return !!(board[position.row] && board[position.row][position.column]);
 };
 
 const isGreaterProximity = (board, position, proximity) => {
