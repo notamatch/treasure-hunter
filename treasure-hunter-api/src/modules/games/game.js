@@ -1,19 +1,24 @@
-const { createBoard } = require('./board');
+const { createStaticBoard, getGameBoard } = require('./board');
 
 let currentPlayer = '';
-let currentBoard = null;
+let staticBoard = [];
+let gameBoard = [];
 
 const startGame = (data) => {
   const { player } = data;
-  const board = createBoard();
+  staticBoard = createStaticBoard();
+  gameBoard = getGameBoard();
   currentPlayer = player;
-  currentBoard = board;
-  return { player };
+  return {
+    player,
+    board: gameBoard
+  };
 };
 
 const getCurrentGame = () => {
   return {
-    player: currentPlayer
+    player: currentPlayer,
+    board: gameBoard
   };
 }
 

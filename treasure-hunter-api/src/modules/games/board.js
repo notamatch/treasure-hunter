@@ -2,12 +2,27 @@ const { setProximity } = require('./proximity');
 const {
   BOARD_SIZE,
   TREASURE_QUANTITY,
-  EMPTY_BOARD,
   MAX_NUMBER
 } = require('./constants');
 
+const generateBoard = (value) => {
+  const board = [];
+  for (let row = 0; row < BOARD_SIZE.ROWS; row++) {
+    const newRow = [];
+    for (let column = 0; column < BOARD_SIZE.COLUMNS; column++) {
+      newRow[column] = value;
+    }
+    board[row] = newRow;
+  }
+  return board;
+};
+
 const getEmptyBoard = () => {
-  return EMPTY_BOARD.map((current) => [...current]);
+  return generateBoard(1);
+};
+
+const getGameBoard = () => {
+  return generateBoard(null);
 };
 
 const getRandomNumber = (max) => {
@@ -44,7 +59,7 @@ const fillBoard = (board, treasures) => {
   });
 };
 
-const createBoard = () => {
+const createStaticBoard = () => {
   const board = getEmptyBoard();
   const treasures = getTreasures();
   fillBoard(board, treasures);
@@ -52,5 +67,6 @@ const createBoard = () => {
 };
 
 module.exports = {
-  createBoard
+  createStaticBoard,
+  getGameBoard
 };
