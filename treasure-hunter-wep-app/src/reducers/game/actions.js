@@ -12,6 +12,11 @@ export const markAction = (row, column) => ({
   payload: { row, column }
 });
 
+export const blankAction = (row, column) => ({
+  type: GAME_ACTIONS.BLANK,
+  payload: { row, column }
+});
+
 export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
 });

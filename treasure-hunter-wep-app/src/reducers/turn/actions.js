@@ -7,6 +7,11 @@ export const addAction = (row, column) => ({
   payload: { row, column }
 });
 
+export const removeAction = (row, column) => ({
+  type: TURN_ACTIONS.REMOVE,
+  payload: { row, column }
+});
+
 export const cleanAction = () => ({
   type: TURN_ACTIONS.CLEAN
 });
