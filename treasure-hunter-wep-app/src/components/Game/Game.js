@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import { Message } from 'rsuite';
 import { GameForm } from './GameForm';
+import { Board } from './Board';
 
 const CurrentGame = ({ player }) => (player && (
   <Message
@@ -18,6 +19,7 @@ export const Game = () => {
     <>
       <GameForm />
       <CurrentGame {...game} />
+      <Board {...game} />
     </>
   );
 };

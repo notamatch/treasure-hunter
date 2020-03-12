@@ -1,7 +1,8 @@
 import { GAME_ACTIONS } from './constants';
 
 const initialState = {
-  player: ''
+  player: '',
+  board: []
 };
 
 export const game = (state = initialState, action) => {
