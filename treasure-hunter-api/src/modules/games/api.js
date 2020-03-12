@@ -1,11 +1,17 @@
 const { Router } = require('express');
-const board = require('./board');
+const game = require('./game');
 
 const routes = Router();
 
-routes.post('/', (_, res) => {
-  const game = board.getBoard();
-  res.json({ board: game });
+routes.post('/', (req, res) => {
+  const data = req.body;
+  const response = game.startGame(data);
+  res.json(response);
+});
+
+routes.get('/', (_, res) => {
+  const response = game.getCurrentGame();
+  res.json(response);
 });
 
 module.exports = {

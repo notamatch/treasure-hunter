@@ -44,7 +44,7 @@ const fillBoard = (board, treasures) => {
   });
 };
 
-const getBoard = () => {
+const createBoard = () => {
   const board = getEmptyBoard();
   const treasures = getTreasures();
   fillBoard(board, treasures);
@@ -52,5 +52,5 @@ const getBoard = () => {
 };
 
 module.exports = {
-  getBoard
+  createBoard
 };
