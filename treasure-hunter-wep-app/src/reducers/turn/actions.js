@@ -1,5 +1,6 @@
 import { Alert } from 'rsuite';
-import { createGame } from '../../services/games';
+import { gameActions } from '../game';
+import { playTurn } from '../../services/games';
 import { TURN_ACTIONS } from './constants';
 
 export const addAction = (row, column) => ({
@@ -18,8 +19,10 @@ export const cleanAction = () => ({
 
 export const playTurnAction = (positions) => async (dispatch) => {
   try {
-    console.info(positions)
+    const response = await playTurn(positions);
+    dispatch(gameActions.updateAction(response.data));
   } catch (error) {
+    console.info(error);
     Alert.error('Turn could not be played', 3000);
   }
 };

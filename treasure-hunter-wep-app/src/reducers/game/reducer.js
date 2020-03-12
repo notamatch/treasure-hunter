@@ -11,6 +11,9 @@ export const game = (state = initialState, action) => {
     case GAME_ACTIONS.LOAD: {
       return { ...action.payload };
     }
+    case GAME_ACTIONS.UPDATE: {
+      return { ...state, ...action.payload };
+    }
     case GAME_ACTIONS.MARK: {
       const { row, column } = action.payload;
       const board = state.board.map((current) => [...current]);

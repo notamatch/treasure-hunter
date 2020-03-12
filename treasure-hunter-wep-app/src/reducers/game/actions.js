@@ -21,6 +21,11 @@ export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
 });
 
+export const updateAction = (data) => ({
+  type: GAME_ACTIONS.UPDATE,
+  paylaod: data
+});
+
 export const startGameAction = (player) => async (dispatch) => {
   try {
     const response = await createGame(player);
