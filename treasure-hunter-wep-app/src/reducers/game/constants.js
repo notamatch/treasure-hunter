@@ -1,4 +1,5 @@
 export const GAME_ACTIONS = {
   LOAD: 'GAME_LOAD',
-  CLEAN: 'GAME_CLEAN'
+  CLEAN: 'GAME_CLEAN',
+  MARK: 'GAME_MARK'
 };

@@ -7,6 +7,11 @@ export const loadAction = (data) => ({
   payload: data
 });
 
+export const markAction = (row, column) => ({
+  type: GAME_ACTIONS.MARK,
+  payload: { row, column }
+});
+
 export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
 });
