@@ -3,7 +3,8 @@ import { VALUES } from '../../components/Game/constants';
 
 const initialState = {
   player: '',
-  board: []
+  board: [],
+  win: false
 };
 
 export const game = (state = initialState, action) => {
@@ -33,6 +34,9 @@ export const game = (state = initialState, action) => {
     }
     case GAME_ACTIONS.CLEAN: {
       return { ...initialState };
+    }
+    case GAME_ACTIONS.WIN: {
+      return { ...state, win: true };
     }
     default:
       return state;

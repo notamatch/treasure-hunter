@@ -20,10 +20,10 @@ const getAppearance = (value) => {
   return 'default';
 };
 
-export const getConfig = (value) => {
+export const getConfig = (value, win) => {
   return {
     value: getValue(value),
-    disabled: isDisabled(value),
+    disabled: win || isDisabled(value),
     appearance: getAppearance(value)
   };
 };

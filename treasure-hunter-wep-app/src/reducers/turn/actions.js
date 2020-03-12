@@ -24,7 +24,7 @@ export const playTurnAction = (positions) => async (dispatch) => {
     dispatch(cleanAction());
     if (data.win) {
       Alert.success('You win', 5000);
-      return;
+      dispatch(gameActions.winAction());
     }
   } catch (error) {
     Alert.error('Turn could not be played', 3000);

@@ -22,7 +22,8 @@ const startGame = (data) => {
 const getCurrentGame = () => {
   return {
     player: currentPlayer,
-    board: makeCopy(gameBoard)
+    board: makeCopy(gameBoard),
+    win: foundTreasures === TREASURE_QUANTITY
   };
 };
 

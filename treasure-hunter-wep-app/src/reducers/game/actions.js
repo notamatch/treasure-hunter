@@ -21,6 +21,10 @@ export const cleanAction = () => ({
   type: GAME_ACTIONS.CLEAN
 });
 
+export const winAction = () => ({
+  type: GAME_ACTIONS.WIN
+});
+
 export const revealPositionsAction = (positions, values) => ({
   type: GAME_ACTIONS.REVEAL,
   payload: {

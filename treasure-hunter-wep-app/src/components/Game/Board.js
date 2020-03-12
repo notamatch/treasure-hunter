@@ -5,9 +5,9 @@ import { turnActions } from '../../reducers/turn';
 import { gameActions } from '../../reducers/game';
 import { getConfig } from './utils';
 
-const Row = ({ data, row, onAdd }) => (
+const Row = ({ data, row, onAdd, win }) => (
   data.map((value, column) => {
-    const config = getConfig(value);
+    const config = getConfig(value, win);
     return (
       <Button
         style={{
@@ -36,7 +36,7 @@ const getOnAdd = (dispatch, turn) => (row, column) => {
   }
 };
 
-export const Board = ({ board }) => {
+export const Board = ({ board, win }) => {
   const dispatch = useDispatch();
   const turn = useSelector(selector, shallowEqual);
   const onAdd = getOnAdd(dispatch, turn);
@@ -48,7 +48,8 @@ export const Board = ({ board }) => {
           <Row
             data={data}
             row={index}
-            onAdd={onAdd} />
+            onAdd={onAdd}
+            win={win} />
         </FlexboxGrid>
       ))}
       {(turn.length === 3) && (
